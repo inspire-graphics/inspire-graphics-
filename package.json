@@ -1,0 +1,21 @@
+{
+  "name": "inspire-graphics",
+  "version": "1.0.0",
+  "description": "Full-stack portfolio website for Inspire Graphics design business",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm start",
+    "lint": "cd frontend && npm run lint",
+    "type-check": "cd frontend && npm run type-check",
+    "install:all": "npm install && cd frontend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "husky": "^9.1.1"
+  }
+}

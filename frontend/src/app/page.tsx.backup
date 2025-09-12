@@ -1,0 +1,572 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Palette, 
+  FileText, 
+  CreditCard, 
+  Image, 
+  Package, 
+  Monitor,
+  Star,
+  ArrowRight,
+  Mail,
+  Phone,
+  MapPin,
+  Users,
+  Award,
+  Sparkles
+} from 'lucide-react';
+import { useApp } from '../contexts/AppContext';
+import Button from '../components/ui/Button';
+import Card from '../components/ui/Card';
+
+export default function Home() {
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    message: '',
+    projectType: 'logo'
+  })
+
+  const services = [
+    {
+      icon: Palette,
+      title: 'Logo Design',
+      description: 'Professional logo design that captures your brand identity and makes a lasting impression.'
+    },
+    {
+      icon: FileText,
+      title: 'Brochures & Flyers',
+      description: 'Eye-catching brochures and flyers that effectively communicate your message.'
+    },
+    {
+      icon: CreditCard,
+      title: 'Business Cards',
+      description: 'Professional business cards that make networking memorable and reflect quality.'
+    },
+    {
+      icon: Image,
+      title: 'Posters & Banners',
+      description: 'Impactful posters and banners for events, promotions, and advertising campaigns.'
+    },
+    {
+      icon: Package,
+      title: 'Packaging Design',
+      description: 'Creative packaging solutions that protect your product and attract customers.'
+    },
+    {
+      icon: Monitor,
+      title: 'Web Graphics',
+      description: 'Digital graphics for websites, social media, and online marketing campaigns.'
+    }
+  ]
+
+  const portfolioProjects = [
+    {
+      id: 1,
+      title: 'Modern Tech Startup Logo',
+      client: 'TechFlow Solutions',
+      category: 'Logo Design',
+      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop&crop=center'
+    },
+    {
+      id: 2,
+      title: 'Restaurant Menu Design',
+      client: 'Bella Vista Restaurant',
+      category: 'Brochure Design',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop&crop=center'
+    },
+    {
+      id: 3,
+      title: 'Corporate Business Cards',
+      client: 'Harrison & Associates',
+      category: 'Business Cards',
+      image: 'https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=600&h=400&fit=crop&crop=center'
+    },
+    {
+      id: 4,
+      title: 'Music Festival Poster',
+      client: 'SoundWave Festival',
+      category: 'Poster Design',
+      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop&crop=center'
+    }
+  ]
+
+  const testimonials = [
+    {
+      name: 'Sarah Johnson',
+      company: 'TechFlow Solutions',
+      text: 'Working with Inspire Graphics was an absolute pleasure. They took our vision and created a logo that perfectly represents our brand.',
+      rating: 5
+    },
+    {
+      name: 'Marco Rossi',
+      company: 'Bella Vista Restaurant',
+      text: 'The menu design completely transformed how our customers perceive our restaurant. Outstanding work!',
+      rating: 5
+    },
+    {
+      name: 'Jennifer Martinez',
+      company: 'SoundWave Festival',
+      text: 'The poster design captured the energy of our festival perfectly. We saw increased ticket sales thanks to the eye-catching design.',
+      rating: 5
+    }
+  ]
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    // For now, just show an alert - you can connect to API later
+    alert('Thank you for your message! We will get back to you soon.')
+    setContactForm({ name: '', email: '', message: '', projectType: 'logo' })
+  }
+
+  const { fetchFeaturedProjects, fetchTestimonials } = useApp();
+
+  // Load data on component mount
+  useEffect(() => {
+    fetchFeaturedProjects();
+    fetchTestimonials();
+  }, [fetchFeaturedProjects, fetchTestimonials]);
+
+  return (
+    <div className="min-h-screen">{/* Removed header - now in layout */}
+
+      {/* Hero Section */}
+      <section id="home" className="section-padding bg-gradient-creative">
+        <div className="container-custom">
+          <div className="text-center max-w-4xl mx-auto">
+            {/* Hero Badge */}
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-primary-100 shadow-soft mb-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Sparkles className="w-4 h-4 text-primary-500" />
+              <span className="text-sm font-semibold text-neutral-700">
+                Professional Design Services
+              </span>
+            </motion.div>
+
+            <motion.h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-neutral-900 mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Bring Your{" "}
+              <span className="text-gradient">Vision to Life</span>
+            </motion.h1>
+            
+            <motion.p 
+              className="text-xl md:text-2xl text-neutral-600 leading-relaxed mb-8 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Professional graphic design services that inspire and elevate your brand. 
+              From logos to complete brand identities, we create designs that make an impact.
+            </motion.p>
+            
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <Button 
+                variant="primary" 
+                size="lg" 
+                className="group shadow-glow"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Start Your Project
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="group"
+                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                <Palette className="w-5 h-5" />
+                View Our Work
+              </Button>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              className="flex flex-wrap justify-center gap-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              {[
+                { icon: Users, number: '100+', label: 'Happy Clients' },
+                { icon: Award, number: '500+', label: 'Projects Completed' },
+                { icon: Star, number: '10+', label: 'Years Experience' }
+              ].map((stat, index) => {
+                const IconComponent = stat.icon;
+                return (
+                  <motion.div
+                    key={stat.label}
+                    className="flex items-center gap-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}
+                  >
+                    <div className="p-2 rounded-lg bg-white shadow-soft">
+                      <IconComponent className="w-5 h-5 text-primary-500" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-display font-bold text-neutral-900">
+                        {stat.number}
+                      </div>
+                      <div className="text-sm text-neutral-600 -mt-1">
+                        {stat.label}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="section-padding bg-neutral-50">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <motion.h2 
+              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Our Services
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-neutral-600 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              We offer a comprehensive range of graphic design services to help your business stand out
+            </motion.p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card hover padding="lg" className="h-full">
+                  <div className="text-center">
+                    <div className="w-16 h-16 mx-auto mb-6 bg-primary-50 rounded-2xl flex items-center justify-center">
+                      <service.icon className="w-8 h-8 text-primary-600" />
+                    </div>
+                    <h3 className="text-xl font-display font-semibold text-neutral-900 mb-4">
+                      {service.title}
+                    </h3>
+                    <p className="text-neutral-600 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section id="portfolio" className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <motion.h2 
+              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Featured Portfolio
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-neutral-600 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Take a look at some of our recent work and see how we help businesses create impactful designs
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {portfolioProjects.map((project, index) => (
+              <motion.div 
+                key={project.id}
+                className="group cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card hover padding="none" className="overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-primary-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="text-center text-white">
+                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                      <p className="text-primary-100">{project.client}</p>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <span className="text-sm font-medium text-primary-600">{project.category}</span>
+                    <h3 className="text-lg font-display font-semibold text-neutral-900 mt-1">{project.title}</h3>
+                    <p className="text-neutral-600">{project.client}</p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="section-padding bg-neutral-50">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <motion.h2 
+              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              What Our Clients Say
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-neutral-600 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Don't just take our word for it - hear from some of our satisfied clients
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div 
+                key={testimonial.name}
+                className="h-full"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card hover padding="lg" className="h-full">
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-neutral-700 mb-6 italic">"{testimonial.text}"</p>
+                  <div>
+                    <p className="font-display font-semibold text-neutral-900">{testimonial.name}</p>
+                    <p className="text-neutral-600 text-sm">{testimonial.company}</p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="section-padding">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <motion.h2 
+              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Let's Work Together
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-neutral-600 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Ready to bring your vision to life? Get in touch and let's discuss your project
+            </motion.p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <Card padding="lg">
+                <form onSubmit={handleContactSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="form-label">
+                    Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    value={contactForm.name}
+                    onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
+                    className="form-input"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="form-label">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    value={contactForm.email}
+                    onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
+                    className="form-input"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="projectType" className="form-label">
+                    Project Type
+                  </label>
+                  <select
+                    id="projectType"
+                    value={contactForm.projectType}
+                    onChange={(e) => setContactForm({...contactForm, projectType: e.target.value})}
+                    className="form-input appearance-none"
+                  >
+                    <option value="logo">Logo Design</option>
+                    <option value="brochure">Brochure/Flyer</option>
+                    <option value="business_card">Business Cards</option>
+                    <option value="poster">Poster/Banner</option>
+                    <option value="packaging">Packaging Design</option>
+                    <option value="web_design">Web Graphics</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="form-label">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    required
+                    rows={4}
+                    value={contactForm.message}
+                    onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
+                    className="form-input min-h-[120px] resize-y"
+                    placeholder="Tell us about your project..."
+                  />
+                </div>
+                
+                  <Button variant="primary" size="lg" fullWidth type="submit">
+                    Send Message
+                  </Button>
+                </form>
+              </Card>
+            </motion.div>
+
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <Card padding="lg">
+                <h3 className="text-2xl font-display font-semibold text-neutral-900 mb-6">Get In Touch</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <Mail className="w-6 h-6 text-primary-600 mr-4" />
+                    <div>
+                      <p className="font-semibold text-neutral-900">Email</p>
+                      <p className="text-neutral-600">hello@inspiregraphics.com</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <Phone className="w-6 h-6 text-primary-600 mr-4" />
+                    <div>
+                      <p className="font-semibold text-neutral-900">Phone</p>
+                      <p className="text-neutral-600">(555) 123-4567</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <MapPin className="w-6 h-6 text-primary-600 mr-4" />
+                    <div>
+                      <p className="font-semibold text-neutral-900">Location</p>
+                      <p className="text-neutral-600">Creative City, CC 12345</p>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div className="mt-8">
+                  <h4 className="text-lg font-display font-semibold text-neutral-900 mb-4">Why Choose Us?</h4>
+                  <ul className="space-y-3 text-neutral-600">
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-primary-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      Professional quality designs that stand out
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-primary-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      Fast turnaround times without compromising quality
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-primary-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      Personalized service and unlimited revisions
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-2 h-2 bg-primary-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      Competitive pricing for all budgets
+                    </li>
+                  </ul>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
