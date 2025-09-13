@@ -9,20 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Deep blue as primary
+        // Professional blue as primary
         primary: {
           50: '#eff6ff',
-          100: '#dbeafe',
+          100: '#dbeafe', 
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#2563EB', // Main deep blue
-          600: '#1d4ed8',
-          700: '#1e40af',
-          800: '#1e3a8a',
-          900: '#172554',
+          500: '#3b82f6', // Main professional blue
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
         },
-        // Orange as creative accent
+        // Subtle orange as creative accent
         creative: {
           50: '#fff7ed',
           100: '#ffedd5',
@@ -35,18 +35,18 @@ const config: Config = {
           800: '#9a3412',
           900: '#7c2d12',
         },
-        // Professional grays
+        // Professional grays with deeper tones
         neutral: {
-          50: '#fafafa',
-          100: '#f5f5f5',
-          200: '#e5e5e5',
-          300: '#d4d4d4',
-          400: '#a3a3a3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
-          800: '#262626',
-          900: '#171717',
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
         },
         // Yellow palette
         warning: {
@@ -102,10 +102,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Playfair Display', 'serif'],
+        sans: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Raleway', 'Montserrat', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-        trajan: ['Crimson Text', 'serif'],
+        heading: ['Oswald', 'sans-serif'],
       },
       spacing: {
         '18': '4.5rem',

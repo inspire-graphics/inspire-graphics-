@@ -75,8 +75,8 @@ const Header = () => {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           isScrolled || state.navigation.isMenuOpen
-            ? 'bg-white/95 backdrop-blur-md shadow-soft border-b border-neutral-100'
-            : 'bg-transparent'
+            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-neutral-100'
+            : 'bg-white/80 backdrop-blur-sm'
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -98,17 +98,11 @@ const Header = () => {
                   handleMenuClick('home', '#home');
                 }}
               >
-                <div className="relative h-20 w-auto group-hover:shadow-glow transition-all duration-300">
-                  <Image
-                    src="/inspire_logo.png"
-                    alt="Inspire Graphics Logo"
-                    width={280}
-                    height={80}
-                    className="object-contain h-full w-auto filter contrast-125 brightness-110"
-                    priority
-                    quality={100}
-                    unoptimized
-                  />
+                <div className="flex items-center">
+                  <span className="text-2xl font-display font-bold text-neutral-900">
+                    Inspire{" "}
+                    <span className="text-primary-600">Graphics</span>
+                  </span>
                 </div>
               </a>
             </motion.div>
@@ -134,7 +128,7 @@ const Header = () => {
                     <a
                       href={item.href}
                       className={cn(
-                        'relative px-3 py-2 text-sm font-semibold transition-all duration-200 rounded-lg',
+                        'relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg',
                         'hover:text-primary-600 hover:bg-primary-50',
                         isActive
                           ? 'text-primary-600 bg-primary-50'
@@ -148,7 +142,7 @@ const Header = () => {
                       {item.label}
                       {isActive && (
                         <motion.div
-                          className="absolute bottom-0 left-1/2 w-1 h-1 bg-primary-500 rounded-full"
+                          className="absolute bottom-0 left-1/2 w-1 h-1 bg-primary-600 rounded-full"
                           layoutId="activeIndicator"
                           initial={false}
                           style={{ x: '-50%' }}
@@ -169,8 +163,8 @@ const Header = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <div className="w-px h-8 bg-gradient-to-b from-primary-300 to-primary-500"></div>
-                <span className="text-sm font-extrabold bg-gradient-to-r from-primary-600 via-creative-500 to-primary-500 bg-clip-text text-transparent">
+                <div className="w-px h-8 bg-gradient-to-b from-primary-400 to-creative-400"></div>
+                <span className="text-sm font-semibold text-neutral-600">
                   {BUSINESS_INFO.tagline}
                 </span>
               </motion.div>
