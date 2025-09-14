@@ -99,10 +99,13 @@ const Header = () => {
                 }}
               >
                 <div className="flex items-center">
-                  <span className="text-2xl font-display font-bold text-neutral-900">
-                    Inspire{" "}
-                    <span className="text-primary-600">Graphics</span>
-                  </span>
+                  <Image
+                    src="/inspire_logo.png"
+                    alt="Inspire Graphics"
+                    width={180}
+                    height={50}
+                    className="h-12 w-auto"
+                  />
                 </div>
               </a>
             </motion.div>
@@ -118,6 +121,21 @@ const Header = () => {
                 const isActive = pathname === item.href || 
                   state.navigation.activeSection === item.section;
                 
+                // Define colors for each navigation item
+                const getButtonColor = (section: string) => {
+                  const colors: { [key: string]: string } = {
+                    'home': '#FF5F6D',
+                    'about': '#9B0ABF',
+                    'services': '#FBC02D',
+                    'showcase': '#00C9FF', // Our Work
+                    'contact': '#00E676',
+                    'portfolio': '#FBC02D'
+                  };
+                  return colors[section] || '#FFFFFF';
+                };
+                
+                const buttonColor = getButtonColor(item.section);
+                
                 return (
                   <motion.div
                     key={item.section}
@@ -128,12 +146,42 @@ const Header = () => {
                     <a
                       href={item.href}
                       className={cn(
-                        'relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg',
-                        'hover:text-primary-600 hover:bg-primary-50',
+                        'relative px-4 py-2 text-sm font-medium rounded-lg',
+                        'transition-all duration-300 ease-in-out',
                         isActive
-                          ? 'text-primary-600 bg-primary-50'
-                          : 'text-neutral-700'
+                          ? ''
+                          : 'hover:bg-white/10'
                       )}
+                      style={isActive ? {
+                        background: 'linear-gradient(135deg, #FF5F6D, #9B0ABF)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                        borderBottom: '2px solid transparent',
+                        borderImage: 'linear-gradient(135deg, #FF5F6D, #9B0ABF) 1'
+                      } : {
+                        color: buttonColor
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isActive) {
+                          const style = e.currentTarget.style as any;
+                          style.background = 'linear-gradient(135deg, #FF5F6D, #9B0ABF)';
+                          style.webkitBackgroundClip = 'text';
+                          style.webkitTextFillColor = 'transparent';
+                          style.backgroundClip = 'text';
+                          style.color = '';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActive) {
+                          const style = e.currentTarget.style as any;
+                          style.background = '';
+                          style.webkitBackgroundClip = '';
+                          style.webkitTextFillColor = '';
+                          style.backgroundClip = '';
+                          style.color = buttonColor;
+                        }
+                      }}
                       onClick={(e) => {
                         e.preventDefault();
                         handleMenuClick(item.section, item.href);
@@ -142,10 +190,12 @@ const Header = () => {
                       {item.label}
                       {isActive && (
                         <motion.div
-                          className="absolute bottom-0 left-1/2 w-1 h-1 bg-primary-600 rounded-full"
+                          className="absolute bottom-0 left-0 right-0 h-0.5"
+                          style={{ 
+                            background: 'linear-gradient(135deg, #FF5F6D, #9B0ABF)'
+                          }}
                           layoutId="activeIndicator"
                           initial={false}
-                          style={{ x: '-50%' }}
                         />
                       )}
                     </a>
@@ -164,7 +214,7 @@ const Header = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
                 <div className="w-px h-8 bg-gradient-to-b from-primary-400 to-creative-400"></div>
-                <span className="text-sm font-semibold text-neutral-600">
+                <span className="text-lg font-semibold bg-gradient-to-r from-primary-600 via-creative-600 to-warning-500 bg-clip-text text-transparent">
                   {BUSINESS_INFO.tagline}
                 </span>
               </motion.div>
@@ -240,6 +290,21 @@ const Header = () => {
                     const isActive = pathname === item.href || 
                       state.navigation.activeSection === item.section;
                     
+                    // Define colors for each navigation item
+                    const getButtonColor = (section: string) => {
+                      const colors: { [key: string]: string } = {
+                        'home': '#FF5F6D',
+                        'about': '#9B0ABF',
+                        'services': '#FBC02D',
+                        'showcase': '#00C9FF', // Our Work
+                        'contact': '#00E676',
+                        'portfolio': '#FBC02D'
+                      };
+                      return colors[section] || '#333333';
+                    };
+                    
+                    const buttonColor = getButtonColor(item.section);
+                    
                     return (
                       <motion.div
                         key={item.section}
@@ -250,12 +315,40 @@ const Header = () => {
                         <a
                           href={item.href}
                           className={cn(
-                            'flex items-center px-4 py-3 text-base font-semibold rounded-xl transition-all duration-200',
-                            'hover:bg-primary-50 hover:text-primary-600',
+                            'flex items-center px-4 py-3 text-base font-semibold rounded-xl',
+                            'transition-all duration-300 ease-in-out',
                             isActive
-                              ? 'bg-primary-50 text-primary-600'
-                              : 'text-neutral-700'
+                              ? ''
+                              : 'hover:bg-white/10'
                           )}
+                          style={isActive ? {
+                            background: 'linear-gradient(135deg, #FF5F6D, #9B0ABF)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text'
+                          } : {
+                            color: buttonColor
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isActive) {
+                              const style = e.currentTarget.style as any;
+                              style.background = 'linear-gradient(135deg, #FF5F6D, #9B0ABF)';
+                              style.webkitBackgroundClip = 'text';
+                              style.webkitTextFillColor = 'transparent';
+                              style.backgroundClip = 'text';
+                              style.color = '';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isActive) {
+                              const style = e.currentTarget.style as any;
+                              style.background = '';
+                              style.webkitBackgroundClip = '';
+                              style.webkitTextFillColor = '';
+                              style.backgroundClip = '';
+                              style.color = buttonColor;
+                            }
+                          }}
                           onClick={(e) => {
                             e.preventDefault();
                             handleMenuClick(item.section, item.href);

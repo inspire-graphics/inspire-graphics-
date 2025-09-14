@@ -133,6 +133,47 @@
   .text-gradient-creative {
     @apply bg-gradient-to-r from-creative-500 to-primary-500 bg-clip-text text-transparent;
   }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase text-center;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+  }
+
+  .body-text {
+    @apply text-base md:text-lg leading-relaxed text-neutral-700 text-center;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    margin: 1.5rem 0;
+    padding: 0 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .zebra-pattern {
+    background: 
+      radial-gradient(ellipse 100px 50px at 20% 10%, #f3f4f6 40%, transparent 41%),
+      radial-gradient(ellipse 120px 60px at 80% 30%, #f3f4f6 40%, transparent 41%),
+      radial-gradient(ellipse 90px 45px at 40% 50%, #f3f4f6 40%, transparent 41%),
+      radial-gradient(ellipse 110px 55px at 70% 70%, #f3f4f6 40%, transparent 41%),
+      radial-gradient(ellipse 80px 40px at 15% 80%, #f3f4f6 40%, transparent 41%),
+      radial-gradient(ellipse 100px 50px at 90% 90%, #f3f4f6 40%, transparent 41%),
+      #ffffff;
+    background-size: 200px 200px, 250px 250px, 180px 180px, 220px 220px, 160px 160px, 200px 200px;
+  }
+
+  .organic-wavy-pattern {
+    background: 
+      linear-gradient(120deg, transparent 45%, #f3f4f6 46%, #f3f4f6 48%, transparent 49%),
+      linear-gradient(-60deg, transparent 42%, #e5e7eb 43%, #e5e7eb 45%, transparent 46%),
+      linear-gradient(30deg, transparent 48%, #f9fafb 49%, #f9fafb 51%, transparent 52%),
+      linear-gradient(-120deg, transparent 40%, #f3f4f6 41%, #f3f4f6 43%, transparent 44%),
+      linear-gradient(150deg, transparent 46%, #e5e7eb 47%, #e5e7eb 49%, transparent 50%),
+      #ffffff;
+    background-size: 80px 120px, 100px 140px, 90px 130px, 110px 150px, 85px 125px;
+    background-position: 0 0, 40px 20px, 20px 40px, 60px 10px, 10px 60px;
+  }
   
   /* Background utilities */
   .bg-gradient-creative {

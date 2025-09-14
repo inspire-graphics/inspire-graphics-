@@ -58,12 +58,13 @@ const AboutUsSection = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-neutral-50">
+    <section id="about" className="section-padding" style={{backgroundColor: '#341539'}}>
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-neutral-900 mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4"
+            style={{color: '#ff00ff'}}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -72,7 +73,8 @@ const AboutUsSection = () => {
             About Us
           </motion.h2>
           <motion.p 
-            className="text-xl text-neutral-600 max-w-2xl mx-auto"
+            className="text-xl max-w-2xl mx-auto"
+            style={{color: '#ffffff'}}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -135,7 +137,7 @@ const AboutUsSection = () => {
             viewport={{ once: true }}
           >
             <div className="mb-8">
-              <h3 className="text-2xl font-display font-bold text-neutral-900 mb-6">
+              <h3 className="text-2xl font-display font-bold mb-6" style={{color: '#ff00ff'}}>
                 Professional Expertise
               </h3>
               
@@ -178,7 +180,7 @@ const AboutUsSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-2xl font-display font-bold text-neutral-900 mb-8">
+          <h3 className="text-2xl font-display font-bold mb-8" style={{color: '#ff00ff'}}>
             Our Values
           </h3>
           
