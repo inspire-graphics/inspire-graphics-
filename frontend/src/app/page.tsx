@@ -98,9 +98,9 @@ export default function Home() {
           {/* Container without background */}
           <div className="w-full max-w-7xl mx-auto p-8">
             {/* 2x4 Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 auto-rows-fr">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:auto-rows-fr">
               {/* Logo Design Card */}
-              <div className="bg-white shadow-md p-8 hover:shadow-lg transition-shadow duration-300 text-center border border-yellow-400">
+              <div className="order-1 md:order-none bg-white shadow-md p-8 hover:shadow-lg transition-shadow duration-300 text-center border border-yellow-400">
                 {/* Pink SVG Icon - Logo/Design Icon */}
                 <div className="mb-6 flex justify-center">
                   <svg className="w-20 h-20 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
@@ -120,7 +120,7 @@ export default function Home() {
               </div>
               
               {/* Logo Design Details Card */}
-              <div className="zebra-pattern shadow-md p-8 hover:shadow-lg transition-shadow duration-300 border border-yellow-400 flex items-center">
+              <div className="order-2 md:order-none zebra-pattern shadow-md p-8 hover:shadow-lg transition-shadow duration-300 border border-yellow-400 flex items-center">
                 {/* Body Text in Dark Gray */}
                 <p className="text-gray-700 leading-tight text-lg md:text-xl lg:text-2xl font-medium text-center w-full">
                   Professional logo creation process including concept development, multiple design iterations, color variations, and complete brand mark systems. We deliver scalable vector formats, style guides, and usage guidelines for consistent brand application across all media.
@@ -128,7 +128,7 @@ export default function Home() {
               </div>
               
               {/* Strategic Brand Positioning Card - Zebra Pattern */}
-              <div className="zebra-pattern shadow-md p-8 hover:shadow-lg transition-shadow duration-300 border border-yellow-400 flex items-center">
+              <div className="order-4 md:order-none zebra-pattern shadow-md p-8 hover:shadow-lg transition-shadow duration-300 border border-yellow-400 flex items-center">
                 {/* Body Text in Dark Gray */}
                 <p className="text-gray-700 leading-tight text-lg md:text-xl lg:text-2xl font-medium text-center w-full">
                   Strategic brand positioning that tells your unique story. From concept to execution, we develop comprehensive brand systems that stand out in today's competitive marketplace and create lasting connections.
@@ -136,7 +136,7 @@ export default function Home() {
               </div>
               
               {/* Brand Design Card */}
-              <div className="bg-white shadow-md p-8 hover:shadow-lg transition-shadow duration-300 text-center border border-yellow-400">
+              <div className="order-3 md:order-none bg-white shadow-md p-8 hover:shadow-lg transition-shadow duration-300 text-center border border-yellow-400">
                 {/* Pink SVG Icon - Brand/Identity Icon */}
                 <div className="mb-6 flex justify-center">
                   <svg className="w-20 h-20 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
@@ -156,7 +156,7 @@ export default function Home() {
               </div>
               
               {/* Graphic Design Card */}
-              <div className="bg-white shadow-md p-12 hover:shadow-lg transition-shadow duration-300 text-center border border-yellow-400">
+              <div className="order-5 md:order-none bg-white shadow-md p-12 hover:shadow-lg transition-shadow duration-300 text-center border border-yellow-400">
                 {/* Pink SVG Icon - Graphic Design Icon */}
                 <div className="mb-6 flex justify-center">
                   <svg className="w-20 h-20 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
@@ -176,7 +176,7 @@ export default function Home() {
               </div>
               
               {/* Graphic Design Quote Card - Zebra Pattern Background */}
-              <div className="zebra-pattern shadow-md p-12 hover:shadow-lg transition-shadow duration-300 border border-yellow-400 flex items-center">
+              <div className="order-6 md:order-none zebra-pattern shadow-md p-12 hover:shadow-lg transition-shadow duration-300 border border-yellow-400 flex items-center">
                 {/* Body Text in Dark Gray */}
                 <p className="text-gray-700 leading-tight text-lg md:text-xl lg:text-2xl font-medium text-center w-full">
                   Graphic design brings a business card or magazine ad to life. It delivers a powerful message in a tangible manner. Whether you need an advertisement designed or a brochure to showcase your service offering, we're here to help you in that process.
@@ -184,7 +184,7 @@ export default function Home() {
               </div>
               
               {/* Printing Services Quote Card - Zebra Pattern Background */}
-              <div className="zebra-pattern shadow-md p-8 hover:shadow-lg transition-shadow duration-300 border border-yellow-400 flex items-center">
+              <div className="order-8 md:order-none zebra-pattern shadow-md p-8 hover:shadow-lg transition-shadow duration-300 border border-yellow-400 flex items-center">
                 {/* Body Text in Dark Gray */}
                 <p className="text-gray-700 leading-tight text-lg md:text-xl lg:text-2xl font-medium text-center w-full">
                   Should you need assistance with printing, we have an extensive menu of products available. We can assist you in basic business needs such as business cards and collateral, promotional items and large-scale banners.
@@ -192,7 +192,7 @@ export default function Home() {
               </div>
               
               {/* Printing Card - White Background */}
-              <div className="bg-white shadow-md p-8 hover:shadow-lg transition-shadow duration-300 text-center border border-yellow-400">
+              <div className="order-7 md:order-none bg-white shadow-md p-8 hover:shadow-lg transition-shadow duration-300 text-center border border-yellow-400">
                 {/* Pink SVG Icon - Printing Icon */}
                 <div className="mb-6 flex justify-center">
                   <svg className="w-20 h-20 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
